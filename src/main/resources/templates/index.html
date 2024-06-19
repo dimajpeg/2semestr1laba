@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Art Gallery</title>
+</head>
+<body>
+<h1>Paintings</h1>
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Artist</th>
+    <th>Year</th>
+    <th>Price</th>
+  </tr>
+  <tr th:each="painting : ${paintings}">
+    <td th:text="${painting.title}"></td>
+    <td th:text="${painting.artist}"></td>
+    <td th:text="${painting.year}"></td>
+    <td th:text="${painting.price}"></td>
+  </tr>
+</table>
+
+<h2>Add a New Painting</h2>
+<form action="/addPainting" method="post">
+  <label for="title">Title:</label><br>
+  <input type="text" id="title" name="title"><br>
+  <label for="artist">Artist:</label><br>
+  <input type="text" id="artist" name="artist"><br>
+  <label for="year">Year:</label><br>
+  <input type="number" id="year" name="year"><br>
+  <label for="price">Price:</label><br>
+  <input type="number" id="price" name="price"><br><br>
+  <input type="submit" value="Add Painting">
+</form>
+</body>
+</html>
